@@ -1,0 +1,11 @@
+#!/usr/bin/env node
+// DEBUG=demoApp node ./bin/www
+var debug = require('debug')('demoApp');
+var app = require('../app');
+
+app.set('port', process.env.PORT || 3000);
+
+var server = app.listen(app.get('port'), function() {
+  debug('Express server listening on port ' + server.address().port);
+  debug("Open \33[32mhttp://54.64.175.37:8080/debug?port=5858\33[0m to debug remotely.");
+});
