@@ -23,6 +23,13 @@ var Homework = db.model('Homework', HomeworkSchema);
 
 router.use(multer({
   dest: './public/homeworks/hw1/',
+  limits: {
+    fileSize: 5 * 1000 * 1000  // 5 MB limits
+  },
+  onFileSizeLimit: function (file) {
+    console.log('\33[31m[Error]\33[0m File \33[34m' + file.originalname + '\33[0m is too large.');
+    fs.unlink('./' + file.path); // delete the partially written file 
+  },
   rename: function (fieldname, filename) {
     return filename.replace(/\W+/g, '-').toLowerCase() + '.' + Date.now();
   },
