@@ -17,25 +17,50 @@ function formValidation () {
 
   var $form = $(this);
 
-  function valid(id) {
+  function valid(id, f) {
     var $input = $form.find(id);
     var val = $input.val();
-    if (val == "") {
-      $input.parent().addClass('has-error');
-      return false;
-    }
-    else {
+    if (f(val)) {
       $input.parent().removeClass('has-error');
       return true;
     }
+    else {
+      $input.parent().addClass('has-error');
+      return false;
+    }
+  }
+
+  function notEmpty(x) {
+    return x != "";
   }
   
-  valid('#student_id');
-  valid('#file_upload');
-  valid('#image_upload');
-  valid('#fb_link');
+  var v1 = valid('#student_id', notEmpty);
+  var v2 = valid('#file_upload', notEmpty);
+  var v3 = valid('#image_upload', notEmpty);
 
-  return valid('#student_id') && valid('#file_upload') && valid('#image_upload') && valid('#fb_link');
+  // https://www.facebook.com/video.php?v=1060647...123
+  var v4 = valid('#fb_link', function (url) {
+    var good = /https\:\/\/www\.facebook\.com/g.test(url) && /\?v=/g.test(url);
+    if (!good) {
+      popErrorMessage({
+	title: "Invalid Facebook video link !",
+	body: 'A valid Facebook video link must look like this: <pre>https://www.facebook.com/...?v=...</pre>'
+      });
+    }
+    else
+      $('#error_msg').hide();
+
+    return good;
+  });
+
+  return v1 && v2 && v3 && v4;
+}
+
+function popErrorMessage(msg) {
+  var $emsg = $('#error_msg');
+  $emsg.find('.msg_title').html(msg.title);
+  $emsg.find('.msg_body').html(msg.body);
+  $emsg.slideDown();
 }
 
 function popMessageOnNecessary(msg) {
@@ -53,7 +78,6 @@ function showCollections(data) {
   if (data.length == 0)
     return;
 
-  console.log(data);
   data.forEach(function (x) {
     delete x._id;
     x.created = new Date(x.created).toLocaleString();
