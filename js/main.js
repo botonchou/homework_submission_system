@@ -48,7 +48,7 @@ function formValidation () {
       });
     }
     else
-      $('#error_msg').hide();
+      $('#error_msg').slideUp();
 
     return good;
   });
@@ -90,8 +90,8 @@ function showCollections(data) {
   thead += '<th>Project Name</th>';
   thead += '<th>Description</th>';
   thead += '<th>Facebook Video</th>';
-  thead += '<th>Codes</th>';
   thead += '<th>Image</th>';
+  thead += '<th>Codes</th>';
   thead += '<th>Submission Time</th>';
   thead += "</tr></thead>";
 
@@ -107,11 +107,11 @@ function showCollections(data) {
     var video_code = data[i].fb_link.match(/v=[^&]*/g)[0].replace(/v=/g, '');
     tbody += "<td>" + "<a target='_blank' href='" + data[i].fb_link + "'>" + video_code + "</a>" + "</td>";
 
-    val = data[i].file;
+    val = data[i].image;
     val = "<a download='" + val.name + "' href='" + val.path + "'>" + val.name + "</a>";
     tbody += "<td>" + val + "</td>";
 
-    val = data[i].image;
+    val = data[i].file;
     val = "<a download='" + val.name + "' href='" + val.path + "'>" + val.name + "</a>";
     tbody += "<td>" + val + "</td>";
 
