@@ -12,9 +12,9 @@
 
     <style>
       td:last-child { width: 18%; }
-      td:nth-child(2) { width: 15%; }
-      td:nth-child(3) { width: 20%; }
-      td:first-child { width: 10%; }
+      td:nth-child(2) { width: 12%; }
+      td:nth-child(3) { width: 30%; }
+      td:first-child { width: 8%; }
       #popup_msg { display: none; }
       #error_msg { display: none; }
       #hw_submit { display: none; }
@@ -22,6 +22,11 @@
 	content: " (必填)";
 	color: #B72614;
 	font-weight: 300;
+      }
+      pre {
+	padding: 3px 5px 3px 5px;
+	margin: 2px;
+	border-radius: 3px;
       }
     </style>
 
@@ -46,8 +51,8 @@
       </div>
     </div>
 
-    <div class='col-md-8 col-md-offset-2'>
-      <div class='col-md-8 col-md-offset-2' id='hw_submit'>
+    <div class='col-md-10 col-md-offset-1'>
+      <div class='col-md-6 col-md-offset-3' id='hw_submit'>
 
 	<div class='col-md-12'>
 	  <div class="bs-callout bs-callout-info">
@@ -58,7 +63,7 @@
 	      <li>請將 Facebook 影片連結設為「公開」。</li>
 	      <li>可以重複上傳，系統會為你保留每一次的上傳結果。評分時以最後一次的上傳結果為準。</li>
 	      <li>上傳完成後，可以在下面的上傳紀錄中看到最近幾次的作業繳交情形。</li>
-	      <li>請不要嘗試 DoS 、injection 等攻擊，助教是很辛苦的，生氣時會把整個 database drop 掉，大家就都零分。</li>
+	      <li>請不要嘗試 DoS 、injection 等攻擊，也請不要拿超長的字串測試它，助教是很辛苦的，生氣時會把整個 database drop 掉，大家就都零分。</li>
 	    </ol>
 	  </div>
 	</div>

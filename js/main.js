@@ -35,7 +35,10 @@ function formValidation () {
     return x != "";
   }
   
-  var v1 = valid('#student_id', notEmpty);
+  var v1 = valid('#student_id', function (id) {
+    return /^[A-z]\d{8}$/.test(id); 
+  });
+
   var v2 = valid('#file_upload', notEmpty);
   var v3 = valid('#image_upload', notEmpty);
 
