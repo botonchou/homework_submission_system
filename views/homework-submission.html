@@ -37,6 +37,7 @@
 	  <p class="msg_body">For more detail, check the submission list below.</p>
 	</div>
       </div>
+
       <div class='col-md-4 col-md-offset-4' id="error_msg">
 	<div class="bs-callout bs-callout-danger">
 	  <h4 class="msg_title"></h4>
@@ -46,7 +47,22 @@
     </div>
 
     <div class='col-md-8 col-md-offset-2'>
-      <div class='col-md-6 col-md-offset-3' id='hw_submit'>
+      <div class='col-md-8 col-md-offset-2' id='hw_submit'>
+
+	<div class='col-md-12'>
+	  <div class="bs-callout bs-callout-info">
+	    <h4 class="msg_title">繳交規則</h4>
+	    <ol>
+	      <li>請於 2015 年 3 月 20 日（五）上課前繳交.</li>
+	      <li>至少要填「學號」、「Facebook 影片連結」、「接線圖」、「Arduino 程式碼」這四格。</li>
+	      <li>請將 Facebook 影片連結設為「公開」。</li>
+	      <li>可以重複上傳，系統會為你保留每一次的上傳結果。評分時以最後一次的上傳結果為準。</li>
+	      <li>上傳完成後，可以在下面的上傳紀錄中看到最近幾次的作業繳交情形。</li>
+	      <li>請不要嘗試 DoS 、injection 等攻擊，助教是很辛苦的，生氣時會把整個 database drop 掉，大家就都零分。</li>
+	    </ol>
+	  </div>
+	</div>
+
 	<form class='form-group' method='post' action='/homeworks/' enctype='multipart/form-data'>
 
 	  <div class="form-group">
@@ -55,17 +71,17 @@
 	  </div>
 
 	  <div class="form-group">
-	    <label for="proj_name">Project Name</label>
+	    <label for="proj_name">幫你的 project 取個名稱</label>
 	    <input type="text" class="form-control" id="proj_name" name='proj_name' placeholder="Ex: Megatron">
 	  </div>
 
 	  <div class="form-group">
-	    <label for="description">Description</label>
+	    <label for="description">簡單描述一下你做了什麼</label>
 	    <textarea class="form-control" id="description" name='description' rows="3" placeholder='Ex: I built a Megatron with Arduino !!'></textarea>
 	  </div>
 
 	  <div class="form-group">
-	    <label for="fb_link">Facebook Video Link<span class='required'></span></label>
+	    <label for="fb_link">Facebook 影片連結 <span class='required'></span></label>
 	    <input class="form-control" id="fb_link" name='fb_link' placeholder='Ex: https://www.facebook.com/video.php?v=1060647...123'/>
 	  </div>
 
@@ -81,7 +97,8 @@
 	    <p class="help-block">請上傳 Arduino 程式碼。如果超過一個檔案，請用 zip 或是 tar 壓縮後再上傳。</p>
 	  </div>
 
-	  <button type="submit" class="btn btn-primary">Submit</button>
+	  <button type="submit" class="btn btn-primary">按我繳交作業</button>
+	  <hr>
 	</form>
       </div>
 
@@ -89,7 +106,8 @@
 	<div class="bs-docs-example bs-docs-example-homeworks" id='homeworks'></div>
       </div>
       <div class='col-md-2 col-md-offset-5'>
-	<button class='btn btn-default' id='upload'>Upload Homework</button>
+	<button class='btn btn-default' id='upload'>上傳新的一份作業</button>
+	<br/> <br/> <br/> <br/>
       </div>
     </div>
 

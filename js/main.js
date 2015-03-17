@@ -6,6 +6,7 @@ $(function () {
   popMessageOnNecessary();
 
   $('#upload').click(function () {
+    $(this).blur();
     $('#popup_msg').hide();
     $('#hw_submit').slideToggle();
   });
@@ -122,5 +123,7 @@ function showCollections(data) {
 
   tbody += "</tbody>";
 
-  $table.append(thead).append(tbody).appendTo("#homeworks");
+  var caption = "<caption>上傳紀錄</caption>";
+
+  $table.append(caption).append(thead).append(tbody).appendTo("#homeworks");
 }
