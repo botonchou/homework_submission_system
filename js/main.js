@@ -102,11 +102,11 @@ function showCollections(data) {
   var tbody = "<tbody>";
 
   for (var i=0; i<data.length; ++i) {
-    tbody += "<tr title='" + data[i]._id + "'>";
+    tbody += "<tr>";
 
     tbody += "<td>" + data[i].id + "</td>";
     tbody += "<td>" + data[i].proj_name + "</td>";
-    tbody += "<td>" + data[i].description + "</td>";
+    tbody += "<td title='" + data[i].description + "'>" + data[i].description.slice(0, 100) + " ... </td>";
 
     var video_code = data[i].fb_link.match(/v=[^&]*/g)[0].replace(/v=/g, '');
     tbody += "<td>" + "<a target='_blank' href='" + data[i].fb_link + "'>" + video_code + "</a>" + "</td>";
