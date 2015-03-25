@@ -126,7 +126,7 @@ router.get('/all', function (req, res) {
   Homework.find({}, 'id proj_name description fb_link file image created').sort('-created').exec(function (err, homeworks) {
     if (err) throw err;
 
-    homeworks = homeworks.splice(0, 10);
+    // homeworks = homeworks.splice(0, 10);
 
     if (!homeworks)
       res.status(404).send('Not found');

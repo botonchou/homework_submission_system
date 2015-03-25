@@ -112,7 +112,7 @@ function showCollections(data) {
     tbody += "<td>" + "<a target='_blank' href='" + data[i].fb_link + "'>" + video_code + "</a>" + "</td>";
 
     val = data[i].image;
-    val = "<a download='" + val.name + "' href='" + val.path + "'>" + val.name + "</a>";
+    val = "<a href='" + val.path + "'>" + val.name + "</a>";
     tbody += "<td>" + val + "</td>";
 
     val = data[i].file;
