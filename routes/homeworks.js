@@ -22,7 +22,7 @@ var HomeworkSchema = new db.Schema({
 var Homework = db.model('Homework', HomeworkSchema);
 
 router.use(multer({
-  dest: './public/homeworks/hw1/',
+  dest: './public/homeworks/hw2/',
   limits: {
     fileSize: 5 * 1000 * 1000  // 5 MB limits
   },
@@ -123,7 +123,7 @@ router.get('/all', function (req, res) {
     console.log(results);
   });*/
 
-  Homework.find({}, 'id proj_name description fb_link file image created').sort('-created').exec(function (err, homeworks) {
+  Homework.find({}, 'id proj_name description fb_link file image created').where('created').gt(new Date("March 25, 2015 22:45:00")).sort('-created').exec(function (err, homeworks) {
     if (err) throw err;
 
     // homeworks = homeworks.splice(0, 10);

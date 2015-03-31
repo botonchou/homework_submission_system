@@ -1,0 +1,70 @@
+td:last-child, td:first-child {
+  white-space:nowrap;
+}
+
+th:nth-child(2) {
+  width: 10%;
+}
+
+#popup_msg {
+  display: none;
+}
+
+#error_msg {
+  display: none;
+}
+
+#hw_submit {
+  display: none;
+}
+
+span.required:after {
+  content: " (必填)";
+  color: #B72614;
+  font-weight: 300;
+}
+pre {
+  padding: 3px 5px 3px 5px;
+  margin: 2px;
+  border-radius: 3px;
+}
+
+.tab { 
+  position: relative;
+  width: 100%;
+}
+
+div.tab-circle {
+  border: 1px solid rgb(200, 200, 200);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2em;
+  height: 2em;
+  border-radius: 1em;
+  background-color: white;
+}
+
+div.tab-circle:hover {
+  background-color: rgb(243, 243, 243);
+}
+
+div.tab-divider {
+  position: absolute;
+  border: solid rgb(200, 200, 200);
+  border-width: 1px 0 0 0;
+  z-index: -1;
+  left: 10%;
+  width: 80%;
+  transform: translate(0, 1em);
+}
+
+div.tab-arrow {
+  display: inline-block;
+  /* By using an em scale, the arrows will size with the font */
+  width: 1em;
+  height: 1em;
+  border-right: 0.1em solid rgb(200, 200, 200);
+  border-top: 0.1em solid rgb(200, 200, 200);
+  transform: rotate(135deg);
+}
